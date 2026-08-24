@@ -16,8 +16,7 @@ G_DECLARE_FINAL_TYPE (KioskShellService,
                       KioskShellDBusServiceSkeleton);
 
 KioskShellService *kiosk_shell_service_new (KioskCompositor *compositor);
-gboolean kiosk_shell_service_start (KioskShellService *service,
-                                    GError           **error);
+gboolean kiosk_shell_service_start (KioskShellService *service);
 void kiosk_shell_service_stop (KioskShellService *service);
 
 G_END_DECLS

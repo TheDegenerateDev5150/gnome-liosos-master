@@ -350,7 +350,7 @@ kiosk_compositor_start (MetaPlugin *plugin)
         self->screenshot_service = kiosk_shell_screenshot_service_new (self);
         kiosk_shell_screenshot_service_start (self->screenshot_service);
         self->shell_service = kiosk_shell_service_new (self);
-        kiosk_shell_service_start (self->shell_service, &error);
+        kiosk_shell_service_start (self->shell_service);
         self->brightness = kiosk_brightness_new (self);
         kiosk_brightness_start (self->brightness, &error);
         self->session_presence = kiosk_session_presence_new (self);

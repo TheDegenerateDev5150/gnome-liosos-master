@@ -497,8 +497,7 @@ on_accelerator_activated (KioskShellService  *self,
 }
 
 gboolean
-kiosk_shell_service_start (KioskShellService *self,
-                           GError           **error)
+kiosk_shell_service_start (KioskShellService *self)
 {
         g_return_val_if_fail (KIOSK_IS_SHELL_SERVICE (self), FALSE);
 
