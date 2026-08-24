@@ -207,8 +207,7 @@ on_bus_name_lost (GDBusConnection *connection,
 }
 
 gboolean
-kiosk_service_start (KioskService *self,
-                     GError      **error)
+kiosk_service_start (KioskService *self)
 {
         g_return_val_if_fail (KIOSK_IS_SERVICE (self), FALSE);
 

@@ -334,12 +334,7 @@ kiosk_compositor_start (MetaPlugin *plugin)
         self->cancellable = g_cancellable_new ();
 
         self->service = kiosk_service_new (self);
-        kiosk_service_start (self->service, &error);
-
-        if (error != NULL) {
-                g_debug ("KioskCompositor: Could not start D-Bus service: %s", error->message);
-                g_clear_error (&error);
-        }
+        kiosk_service_start (self->service);
 
         neuter_builtin_keybindings (self);
 
