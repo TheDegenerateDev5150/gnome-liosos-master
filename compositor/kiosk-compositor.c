@@ -354,7 +354,7 @@ kiosk_compositor_start (MetaPlugin *plugin)
         self->brightness = kiosk_brightness_new (self);
         kiosk_brightness_start (self->brightness);
         self->session_presence = kiosk_session_presence_new (self);
-        kiosk_session_presence_start (self->session_presence, &error);
+        kiosk_session_presence_start (self->session_presence);
         self->screensaver_service = kiosk_screensaver_service_new (self);
         kiosk_screensaver_service_start (self->screensaver_service, &error);
 

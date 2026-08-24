@@ -216,8 +216,7 @@ kiosk_session_presence_new (KioskCompositor *compositor)
 }
 
 gboolean
-kiosk_session_presence_start (KioskSessionPresence *self,
-                              GError              **error)
+kiosk_session_presence_start (KioskSessionPresence *self)
 {
         g_return_val_if_fail (KIOSK_IS_SESSION_PRESENCE (self), FALSE);
 

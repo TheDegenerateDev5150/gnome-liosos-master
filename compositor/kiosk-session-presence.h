@@ -28,8 +28,7 @@ typedef enum
 GType gsm_presence_status_get_type (void);
 
 KioskSessionPresence *kiosk_session_presence_new (KioskCompositor *compositor);
-gboolean kiosk_session_presence_start (KioskSessionPresence *self,
-                                       GError              **error);
+gboolean kiosk_session_presence_start (KioskSessionPresence *self);
 void kiosk_session_presence_stop (KioskSessionPresence *self);
 GsmPresenceStatus kiosk_session_presence_get_status (KioskSessionPresence *self);
 
