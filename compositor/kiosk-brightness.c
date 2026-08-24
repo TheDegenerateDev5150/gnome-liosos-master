@@ -364,8 +364,7 @@ on_bus_name_lost (GDBusConnection *connection,
 }
 
 gboolean
-kiosk_brightness_start (KioskBrightness *self,
-                        GError         **error)
+kiosk_brightness_start (KioskBrightness *self)
 {
         g_return_val_if_fail (KIOSK_IS_BRIGHTNESS (self), FALSE);
 
