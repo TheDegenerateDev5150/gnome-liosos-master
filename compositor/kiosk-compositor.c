@@ -318,7 +318,6 @@ static void
 kiosk_compositor_start (MetaPlugin *plugin)
 {
         KioskCompositor *self = KIOSK_COMPOSITOR (plugin);
-        g_autoptr (GError) error = NULL;
         MetaDisplay *display = meta_plugin_get_display (META_PLUGIN (self));
         MetaCompositor *compositor = meta_display_get_compositor (display);
 
@@ -356,12 +355,7 @@ kiosk_compositor_start (MetaPlugin *plugin)
         self->session_presence = kiosk_session_presence_new (self);
         kiosk_session_presence_start (self->session_presence);
         self->screensaver_service = kiosk_screensaver_service_new (self);
-        kiosk_screensaver_service_start (self->screensaver_service, &error);
-
-        if (error != NULL) {
-                g_debug ("KioskCompositor: Could not start D-Bus service: %s", error->message);
-                g_clear_error (&error);
-        }
+        kiosk_screensaver_service_start (self->screensaver_service);
 
         self->interface_settings = g_settings_new (GNOME_DESKTOP_INTERFACE_SCHEMA);
         self->animations_enabled = g_settings_get_boolean (self->interface_settings,

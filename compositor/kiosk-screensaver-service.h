@@ -16,8 +16,7 @@ G_DECLARE_FINAL_TYPE (KioskScreenSaverService,
                       KioskScreenSaverSkeleton);
 
 KioskScreenSaverService *kiosk_screensaver_service_new (KioskCompositor *compositor);
-gboolean kiosk_screensaver_service_start (KioskScreenSaverService *service,
-                                          GError                 **error);
+gboolean kiosk_screensaver_service_start (KioskScreenSaverService *service);
 void kiosk_screensaver_service_stop (KioskScreenSaverService *service);
 
 G_END_DECLS

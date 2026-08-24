@@ -380,8 +380,7 @@ on_bus_name_lost (GDBusConnection         *connection,
 }
 
 gboolean
-kiosk_screensaver_service_start (KioskScreenSaverService *self,
-                                 GError                 **error)
+kiosk_screensaver_service_start (KioskScreenSaverService *self)
 {
         g_return_val_if_fail (KIOSK_IS_SCREENSAVER_SERVICE (self), FALSE);
 
