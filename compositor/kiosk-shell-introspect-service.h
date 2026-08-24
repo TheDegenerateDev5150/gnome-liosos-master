@@ -16,8 +16,7 @@ G_DECLARE_FINAL_TYPE (KioskShellIntrospectService,
                       KioskShellIntrospectDBusServiceSkeleton);
 
 KioskShellIntrospectService *kiosk_shell_introspect_service_new (KioskCompositor *compositor);
-gboolean kiosk_shell_introspect_service_start (KioskShellIntrospectService *service,
-                                               GError                     **error);
+gboolean kiosk_shell_introspect_service_start (KioskShellIntrospectService *service);
 void kiosk_shell_introspect_service_stop (KioskShellIntrospectService *service);
 
 G_END_DECLS

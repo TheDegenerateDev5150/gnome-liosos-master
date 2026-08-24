@@ -624,8 +624,7 @@ setup_bus_watcher (KioskShellIntrospectService *self)
 }
 
 gboolean
-kiosk_shell_introspect_service_start (KioskShellIntrospectService *self,
-                                      GError                     **error)
+kiosk_shell_introspect_service_start (KioskShellIntrospectService *self)
 {
         g_return_val_if_fail (KIOSK_IS_SHELL_INTROSPECT_SERVICE (self), FALSE);
 
