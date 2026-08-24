@@ -569,8 +569,7 @@ on_bus_name_lost (GDBusConnection             *connection,
 }
 
 gboolean
-kiosk_shell_screenshot_service_start (KioskShellScreenshotService *self,
-                                      GError                     **error)
+kiosk_shell_screenshot_service_start (KioskShellScreenshotService *self)
 {
         g_return_val_if_fail (KIOSK_IS_SHELL_SCREENSHOT_SERVICE (self), FALSE);
 

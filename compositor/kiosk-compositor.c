@@ -348,7 +348,7 @@ kiosk_compositor_start (MetaPlugin *plugin)
         self->introspect_service = kiosk_shell_introspect_service_new (self);
         kiosk_shell_introspect_service_start (self->introspect_service);
         self->screenshot_service = kiosk_shell_screenshot_service_new (self);
-        kiosk_shell_screenshot_service_start (self->screenshot_service, &error);
+        kiosk_shell_screenshot_service_start (self->screenshot_service);
         self->shell_service = kiosk_shell_service_new (self);
         kiosk_shell_service_start (self->shell_service, &error);
         self->brightness = kiosk_brightness_new (self);
