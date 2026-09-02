@@ -16,7 +16,7 @@ G_DECLARE_FINAL_TYPE (KioskBrightness,
                       KioskShellBrightnessDBusServiceSkeleton);
 
 KioskBrightness *kiosk_brightness_new (KioskCompositor *compositor);
-gboolean kiosk_brightness_start (KioskBrightness *service);
+void kiosk_brightness_start (KioskBrightness *service);
 void kiosk_brightness_stop (KioskBrightness *service);
 
 G_END_DECLS
