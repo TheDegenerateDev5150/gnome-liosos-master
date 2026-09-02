@@ -206,10 +206,10 @@ on_bus_name_lost (GDBusConnection *connection,
         }
 }
 
-gboolean
+void
 kiosk_service_start (KioskService *self)
 {
-        g_return_val_if_fail (KIOSK_IS_SERVICE (self), FALSE);
+        g_return_if_fail (KIOSK_IS_SERVICE (self));
 
         g_debug ("KioskService: Starting");
 
@@ -222,8 +222,6 @@ kiosk_service_start (KioskService *self)
                                        (GBusNameVanishedCallback) on_bus_name_lost,
                                        self,
                                        NULL);
-
-        return TRUE;
 }
 
 void
