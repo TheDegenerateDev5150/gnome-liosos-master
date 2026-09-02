@@ -215,10 +215,10 @@ kiosk_session_presence_new (KioskCompositor *compositor)
         return KIOSK_SESSION_PRESENCE (object);
 }
 
-gboolean
+void
 kiosk_session_presence_start (KioskSessionPresence *self)
 {
-        g_return_val_if_fail (KIOSK_IS_SESSION_PRESENCE (self), FALSE);
+        g_return_if_fail (KIOSK_IS_SESSION_PRESENCE (self));
 
         g_debug ("KioskSessionPresence: Starting");
 
@@ -231,8 +231,6 @@ kiosk_session_presence_start (KioskSessionPresence *self)
                                         self->cancellable,
                                         (GAsyncReadyCallback) on_proxy_ready,
                                         self);
-
-        return TRUE;
 }
 
 void
