@@ -379,10 +379,10 @@ on_bus_name_lost (GDBusConnection         *connection,
         g_debug ("KioskScreenSaverService: Lost name %s", name);
 }
 
-gboolean
+void
 kiosk_screensaver_service_start (KioskScreenSaverService *self)
 {
-        g_return_val_if_fail (KIOSK_IS_SCREENSAVER_SERVICE (self), FALSE);
+        g_return_if_fail (KIOSK_IS_SCREENSAVER_SERVICE (self));
 
         g_debug ("KioskScreenSaverService: Starting");
 
@@ -394,8 +394,6 @@ kiosk_screensaver_service_start (KioskScreenSaverService *self)
                                        (GBusNameVanishedCallback) on_bus_name_lost,
                                        self,
                                        NULL);
-
-        return TRUE;
 }
 
 void
