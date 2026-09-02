@@ -16,7 +16,7 @@ G_DECLARE_FINAL_TYPE (KioskShellScreenshotService,
                       KioskShellScreenshotDBusServiceSkeleton);
 
 KioskShellScreenshotService *kiosk_shell_screenshot_service_new (KioskCompositor *compositor);
-gboolean kiosk_shell_screenshot_service_start (KioskShellScreenshotService *service);
+void kiosk_shell_screenshot_service_start (KioskShellScreenshotService *service);
 void kiosk_shell_screenshot_service_stop (KioskShellScreenshotService *service);
 
 G_END_DECLS
