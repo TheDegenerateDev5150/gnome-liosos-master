@@ -1,5 +1,14 @@
 # NEWS
 
+## 51.rc
+
+- Load and cache background images from files using glycin
+- Fix set-strut feedback loop during initial window configuration
+- Restrict set-strut to dock windows only
+- Fix memory leak in window configuration
+- Adapt to mutter API changes
+- Various code cleanup
+
 ## 51.beta
 
 - Add a basic screensaver and session presence support
