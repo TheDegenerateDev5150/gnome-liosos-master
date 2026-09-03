@@ -1,5 +1,5 @@
 project('gnome-kiosk', 'c',
-        version: '51.beta',
+        version: '51.rc',
         meson_version : '>= 0.59',
 )
 add_project_arguments('-D_GNU_SOURCE',
