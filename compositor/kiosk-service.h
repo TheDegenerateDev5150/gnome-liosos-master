@@ -16,8 +16,7 @@ G_DECLARE_FINAL_TYPE (KioskService,
 
 KioskService *kiosk_service_new (KioskCompositor *compositor);
 
-gboolean kiosk_service_start (KioskService *self,
-                              GError      **error);
+void kiosk_service_start (KioskService *self);
 void kiosk_service_stop (KioskService *self);
 
 KioskDBusInputSourcesManagerSkeleton *kiosk_service_get_input_sources_manager_skeleton (KioskService *self);

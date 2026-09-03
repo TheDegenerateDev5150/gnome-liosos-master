@@ -623,11 +623,10 @@ setup_bus_watcher (KioskShellIntrospectService *self)
         }
 }
 
-gboolean
-kiosk_shell_introspect_service_start (KioskShellIntrospectService *self,
-                                      GError                     **error)
+void
+kiosk_shell_introspect_service_start (KioskShellIntrospectService *self)
 {
-        g_return_val_if_fail (KIOSK_IS_SHELL_INTROSPECT_SERVICE (self), FALSE);
+        g_return_if_fail (KIOSK_IS_SHELL_INTROSPECT_SERVICE (self));
 
         g_debug ("KioskShellIntrospectService: Starting");
         self->bus_id = g_bus_own_name (G_BUS_TYPE_SESSION,
@@ -662,8 +661,6 @@ kiosk_shell_introspect_service_start (KioskShellIntrospectService *self,
                 KIOSK_SHELL_INTROSPECT_DBUS_SERVICE (self),
                 KIOSK_SHELL_INTROSPECT_SERVICE_VERSION);
         kiosk_shell_introspect_service_update_screen_size (self);
-
-        return TRUE;
 }
 
 void

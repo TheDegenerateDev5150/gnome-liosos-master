@@ -496,11 +496,10 @@ on_accelerator_activated (KioskShellService  *self,
                                                              g_variant_builder_end (&builder));
 }
 
-gboolean
-kiosk_shell_service_start (KioskShellService *self,
-                           GError           **error)
+void
+kiosk_shell_service_start (KioskShellService *self)
 {
-        g_return_val_if_fail (KIOSK_IS_SHELL_SERVICE (self), FALSE);
+        g_return_if_fail (KIOSK_IS_SHELL_SERVICE (self));
 
         g_debug ("KioskShellService: Starting");
         self->bus_id = g_bus_own_name (G_BUS_TYPE_SESSION,
@@ -516,7 +515,6 @@ kiosk_shell_service_start (KioskShellService *self,
                                   "accelerator-activated",
                                   G_CALLBACK (on_accelerator_activated),
                                   self);
-        return TRUE;
 }
 
 void

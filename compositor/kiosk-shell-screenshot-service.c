@@ -568,11 +568,10 @@ on_bus_name_lost (GDBusConnection             *connection,
         g_debug ("KioskShellScreenshotService: Lost name %s", name);
 }
 
-gboolean
-kiosk_shell_screenshot_service_start (KioskShellScreenshotService *self,
-                                      GError                     **error)
+void
+kiosk_shell_screenshot_service_start (KioskShellScreenshotService *self)
 {
-        g_return_val_if_fail (KIOSK_IS_SHELL_SCREENSHOT_SERVICE (self), FALSE);
+        g_return_if_fail (KIOSK_IS_SHELL_SCREENSHOT_SERVICE (self));
 
         g_debug ("KioskShellScreenshotService: Starting");
         self->bus_id = g_bus_own_name (G_BUS_TYPE_SESSION,
@@ -583,8 +582,6 @@ kiosk_shell_screenshot_service_start (KioskShellScreenshotService *self,
                                        (GBusNameVanishedCallback) on_bus_name_lost,
                                        self,
                                        NULL);
-
-        return TRUE;
 }
 
 void

@@ -363,11 +363,10 @@ on_bus_name_lost (GDBusConnection *connection,
         g_debug ("KioskBrightness: Lost name %s", name);
 }
 
-gboolean
-kiosk_brightness_start (KioskBrightness *self,
-                        GError         **error)
+void
+kiosk_brightness_start (KioskBrightness *self)
 {
-        g_return_val_if_fail (KIOSK_IS_BRIGHTNESS (self), FALSE);
+        g_return_if_fail (KIOSK_IS_BRIGHTNESS (self));
 
         g_debug ("KioskBrightness: Starting");
         self->bus_id = g_bus_own_name (G_BUS_TYPE_SESSION,
@@ -378,8 +377,6 @@ kiosk_brightness_start (KioskBrightness *self,
                                        (GBusNameVanishedCallback) on_bus_name_lost,
                                        self,
                                        NULL);
-
-        return TRUE;
 }
 
 void

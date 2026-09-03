@@ -318,7 +318,6 @@ static void
 kiosk_compositor_start (MetaPlugin *plugin)
 {
         KioskCompositor *self = KIOSK_COMPOSITOR (plugin);
-        g_autoptr (GError) error = NULL;
         MetaDisplay *display = meta_plugin_get_display (META_PLUGIN (self));
         MetaCompositor *compositor = meta_display_get_compositor (display);
 
@@ -334,12 +333,7 @@ kiosk_compositor_start (MetaPlugin *plugin)
         self->cancellable = g_cancellable_new ();
 
         self->service = kiosk_service_new (self);
-        kiosk_service_start (self->service, &error);
-
-        if (error != NULL) {
-                g_debug ("KioskCompositor: Could not start D-Bus service: %s", error->message);
-                g_clear_error (&error);
-        }
+        kiosk_service_start (self->service);
 
         neuter_builtin_keybindings (self);
 
@@ -351,22 +345,17 @@ kiosk_compositor_start (MetaPlugin *plugin)
         self->kiosk_window_config = kiosk_window_config_new (self);
         self->magnifier = kiosk_magnifier_new (self);
         self->introspect_service = kiosk_shell_introspect_service_new (self);
-        kiosk_shell_introspect_service_start (self->introspect_service, &error);
+        kiosk_shell_introspect_service_start (self->introspect_service);
         self->screenshot_service = kiosk_shell_screenshot_service_new (self);
-        kiosk_shell_screenshot_service_start (self->screenshot_service, &error);
+        kiosk_shell_screenshot_service_start (self->screenshot_service);
         self->shell_service = kiosk_shell_service_new (self);
-        kiosk_shell_service_start (self->shell_service, &error);
+        kiosk_shell_service_start (self->shell_service);
         self->brightness = kiosk_brightness_new (self);
-        kiosk_brightness_start (self->brightness, &error);
+        kiosk_brightness_start (self->brightness);
         self->session_presence = kiosk_session_presence_new (self);
-        kiosk_session_presence_start (self->session_presence, &error);
+        kiosk_session_presence_start (self->session_presence);
         self->screensaver_service = kiosk_screensaver_service_new (self);
-        kiosk_screensaver_service_start (self->screensaver_service, &error);
-
-        if (error != NULL) {
-                g_debug ("KioskCompositor: Could not start D-Bus service: %s", error->message);
-                g_clear_error (&error);
-        }
+        kiosk_screensaver_service_start (self->screensaver_service);
 
         self->interface_settings = g_settings_new (GNOME_DESKTOP_INTERFACE_SCHEMA);
         self->animations_enabled = g_settings_get_boolean (self->interface_settings,
