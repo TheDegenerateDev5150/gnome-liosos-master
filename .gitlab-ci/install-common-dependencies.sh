@@ -72,11 +72,11 @@ then
       1.36
 fi
 
-if ! gsettings list-keys org.gnome.desktop.peripherals.tablet.stylus | \
-     grep -q button-keybinding >/dev/null 2>&1
+if ! gsettings list-keys org.gnome.desktop.peripherals.touchpad | \
+     grep -q custom-accel-config >/dev/null 2>&1
 then
     ./$SCRIPTS_DIR/install-meson-project.sh \
       "${OPTIONS[@]}" \
       https://gitlab.gnome.org/GNOME/gsettings-desktop-schemas.git \
-      master
+      main
 fi
