@@ -1,5 +1,9 @@
 # NEWS
 
+## 51.0
+
+- Update the CI for release.
+
 ## 51.rc
 
 - Load and cache background images from files using glycin
